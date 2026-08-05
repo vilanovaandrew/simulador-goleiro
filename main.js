@@ -1,4 +1,3 @@
-import './style.css'
 import { baseStats } from './data.js'
 
 const MAX_POINTS = 40;
