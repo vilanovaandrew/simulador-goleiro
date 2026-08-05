@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Fichas de Goleiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <main class="app-container">
+    <header class="app-header">
+      <h1>Simulador de Ficha de Goleiro</h1>
+      <p>Configure a altura, o tipo físico e distribua 40 pontos nas suas habilidades.</p>
+    </header>
+
+    <div class="global-controls no-print">
+      <button id="btn-add-sheet" class="btn-primary">Adicionar Nova Ficha</button>
+      <button id="btn-export-all" class="btn-primary" style="background-color: var(--success); margin-left: 1rem;">Exportar Fichas para PDF</button>
+    </div>
+
+    <!-- The container for all sheets -->
+    <div class="sheets-wrapper" id="sheets-wrapper">
+      <!-- Sheets will be injected here by JS -->
+    </div>
+    
+  </main>
+  
+  <!-- Template for a single sheet -->
+  <template id="sheet-template">
+    <div class="sheet-container">
+      <button class="btn-remove-sheet no-print">Remover Ficha</button>
+      
+      <div class="controls-section no-print">
+        <div class="control-group">
+          <label>Altura:</label>
+          <select class="select-altura">
+            <option value="Muito Alto">Muito Alto</option>
+            <option value="Alto">Alto</option>
+            <option value="Médio">Médio</option>
+            <option value="Baixo">Baixo</option>
+            <option value="Muito Baixo">Muito Baixo</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Tipo Físico:</label>
+          <select class="select-tipo">
+            <option value="Felino">Felino</option>
+            <option value="Muralha">Muralha</option>
+            <option value="Libero">Líbero</option>
+          </select>
+        </div>
+        <button class="btn-secondary btn-reset">Resetar</button>
+      </div>
+
+      <div class="sheet-content">
+        <div class="sheet-header">
+          <div class="sheet-info">
+            <h2>Ficha do Goleiro</h2>
+            <div class="info-badges">
+              <span class="badge badge-altura">Muito Alto</span>
+              <span class="badge badge-tipo">Felino</span>
+            </div>
+          </div>
+          <div class="points-container">
+            <div class="points-label">Pontos Restantes</div>
+            <div class="points-value">40</div>
+          </div>
+        </div>
+
+        <div class="attributes-grid">
+          <!-- Rendered by JS -->
+        </div>
+        
+        <div class="sheet-footer">
+          Gerado pelo Simulador de Fichas de Goleiro
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
